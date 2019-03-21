@@ -31,7 +31,7 @@ console: venv  ## Start python3 console in the vitrual environment
 	@${PYTHON}
 
 jupyter: venv
-	. python/.venv/bin/activate; jupyter notebook
+	. ${VENV_PATH}/activate; jupyter notebook
 
 clean:
 	@find -name *.pyc -delete
@@ -39,12 +39,5 @@ clean:
 	@echo Python cache files deleted
 
 
-run: venv  ## Runs the ad-hoc server
-	@${PYTHON} python/main.py \
-	--cert ${CERT_FILE} \
-	--key ${KEY_FILE} \
-	--mu-url ${MU_URL_WORK} \
-	--mu-namespace ${NAMESPACE_MU_ASO} \
-	--sigma-url ${SIGMA_URL_WORK} \
-	--sigma-namespace ${NAMESPACE_SIGMA} \
-	--mr-url ${MR_URL_WORK}
+run: venv  ## Sample call 
+	@${PYTHON} python/main.py 
